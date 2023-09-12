@@ -1,0 +1,202 @@
+body{
+    font-family: "futura", sans-serif;
+    color: white;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+    margin: 30px 0 0 50px;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+section{
+    margin: 20px 20px 0 20px;
+}
+/*USER COLUMN*/
+.user-column{
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.user-menu{
+    width: 35px;
+}
+/*TOP LEFT SECTION*/
+.col-top-left{
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+button{
+    background-color: transparent;
+    border: none;
+    margin-left: 15px;
+}
+p.cityName{
+    margin-bottom: 0;
+}
+.top-left-sub{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+.temperature{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+.cityName{
+    font-size: 1.2rem;
+}
+.cityInput{
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    color: white;
+    transition: .5s ease;
+}
+.cityInput:hover{
+    transform: scale(110%);
+}
+.button-image{
+    width: 20px;
+}
+/*BOTTOM LEFT SECTION*/
+.col-bottom-left{
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    height: 56vh;
+}
+.forecast{
+    letter-spacing: 0.19em;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid white;
+}
+.col-bottom-right{
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+/*TOP RIGHT SECTION*/
+.col-top-right{
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-right: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+.humidity-image{
+    width: 60px;
+}
+.highlight-sub{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    /*letter-spacing: .19em;*/
+}
+.highlight{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.location-image{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+.highlight-sub{
+    border-bottom: 1px solid white;
+}
+.weather-icon{
+    width: 100px;
+}
+.four-column{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+
+/*FADE IN TRANSITION*/
+@-webkit-keyframes fade {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fade {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes fade {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fade {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.page {
+    animation-name: fade;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+

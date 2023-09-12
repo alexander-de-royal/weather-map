@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <!-- Mapbox JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Mapbox driving directions-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    <!--BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="weather-map.css">
+    <title>Weather-Map</title>
+</head>
+
+<body onload="DefaultScreen()">
+<div class="page">
+    <div class="row">
+        <div class="col user-column">
+            <div class="col"><img class="user-menu" src="weather-img/menu.png" alt=""></div>
+            <div class="col"><img class="user-menu" src="weather-img/map.png" alt=""></div>
+            <div class="col"><img class="user-menu" src="weather-img/location-menu.png" alt=""></div>
+            <div class="col"><img class="user-menu" src="weather-img/radar.png" alt=""></div>
+            <div class="col"><img class="user-menu" src="weather-img/calendar.png" alt=""></div>
+            <div class="col"><img class="user-menu mt-4" src="weather-img/notification.png" alt=""></div>
+            <div class="col"><img class="user-menu" src="weather-img/girl.png" alt=""></div>
+
+        </div>
+
+<!--        THIS COLUMN HOLDS TOP LEFT, TOP RIGHT, BOTTOM LEFT AND BOTTOM RIGHT-->
+        <div class="col-11 four-column">
+
+<!--            TOP LEFT SECTION-->
+            <div class="col-3 col-top-left mb-4">
+                <section>
+                    <div class="row top-left-main mt-4">
+                        <div class="col-12">
+                            <div class="search">
+                                <input type="search" class="cityInput" placeholder="Enter a city name">
+<!--                                <input type="search" class="cityInput" placeholder="enter a city name">-->
+                                <button id="#submitInput" type="button" onclick="GetInfo()"><img class="button-image" src="weather-img/button.png" alt=""></button>
+                            </div>
+
+                        </div>
+                        <div class="col-6 top-left-sub mt-4">
+                            <img class="location-image" src="weather-img/location.png" alt="">
+                            <div id="loading"></div>
+                            <p class="cityName"></p>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <img src="" alt="" class="weather-icon">
+                        </div>
+                        <div class="col-6 top-left-sub mt-4">
+                            <img src="" alt="" class="temperature">
+                            <h5 class="temp">Loading...</h5>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <h4 class="main"></h4>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+<!--            TOP RIGHT SECTION-->
+            <div class="col-8 col-top-right mb-4">
+                <section>
+                    <div class="row highlight-main">
+                        <div class="col-12 highlight-sub mb-4">
+                            <h6>Today's Highlights</h6>
+<!--                            <h6 class="description">Loading...</h6>-->
+                            <h6 class="date"></h6>
+                        </div>
+
+                        <div class="col-3 highlight">
+                            <img class="humidity-image mb-1" src="weather-img/sunrise.png" alt="">
+                            <h5>Sunrise</h5>
+                            <h5 class="sunrise">Sunrise</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+
+                        <div class="col-3 highlight">
+                            <img class="humidity-image mb-1" src="weather-img/humidity.png" alt="">
+                            <h5>Humidity</h5>
+                            <h5 class="humidity">Humidity</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+
+                        <div class="col-3 highlight">
+                            <img class="humidity-image mb-1" src="weather-img/wind.png" alt="">
+                            <h5>Wind Speed</h5>
+                            <h5 class="wind">Wind Speed</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+
+                        
+                        <div class="col-3 highlight">
+                            <img class="humidity-image mb-1" src="weather-img/sunset.png" alt="">
+                            <h5>Sunset</h5>
+                            <h5 class="sunset">Sunset</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+
+
+                    </div>
+                </section>
+            </div>
+
+<!--            BOTTOM LEFT SECTION-->
+            <div class="col-3 col-bottom-left">
+
+                <section>
+                            <div class="bottom-left-main"><h4 class="forecast mb-5">5 DAYS FORECAST</h4>
+                            <div class = "icons mt-5">
+                                <p class="weather" id="day1"></p>
+                                <div class="image"><img src="" class="imgClass" id="img1"></div>
+                                <p class="minValues" id="day1Min"></p>
+                                <p class="maxValues" id="day1Max"></p>
+                             </div>
+                            <div class = "icons mt-2">
+                                <p class="weather" id="day2"></p>
+                                <div class="image"><img src="" class="imgClass" id="img2"></div>
+                                <p class="minValues" id="day2Min">Loading...</p>
+                                <p class="maxValues" id="day2Max">Loading...</p>
+                            </div>
+                            <div class = "icons mt-2">
+                                <p class="weather" id="day3"></p>
+                                <div class="image"><img src="" class="imgClass" id="img3"></div>
+                                <p class="minValues" id="day3Min">Loading...</p>
+                                <p class="maxValues" id="day3Max">Loading...</p>
+                            </div>
+                            <div class = "icons mt-2">
+                                <p class="weather" id="day4"></p>
+                                <div class="image"><img src="" class="imgClass" id="img4"></div>
+                                <p class="minValues" id="day4Min">Loading...</p>
+                                <p class="maxValues" id="day4Max">Loading...</p>
+                            </div>
+                            <div class = "icons mt-2">
+                                <p class="weather" id="day5"></p>
+                                <div class="image"><img src="" class="imgClass" id="img5"></div>
+                                <p class="minValues" id="day5Min">Loading...</p>
+                                <p class="maxValues" id="day5Max">Loading...</p>
+                            </div>
+                            </div>
+                </section>
+            </div>
+
+<!--            MAP BOX BOTTOM RIGHT SECTION-->
+
+            <div class="col-8 col-bottom-right" id="map"></div>
+            <pre id="coordinates" class="coordinates"></pre>
+        </div>
+    </div>
+
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+
+    <!-- API KEYS-->
+    <script src="key.js"></script>
+
+    <!--GEOCODER-->
+    <script src="mapbox-geocode-utils.js"></script>
+
+    <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+
+    <!--BOOTSTRAP-->
+    <script>src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossOrigin="anonymous"</script>
+
+    <!--jQuery-->
+    <script>src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossOrigin="anonymous"</script>
+
+    <script src="weather-map.js"></script>
+
+</div>
+</body>
+
+</html>

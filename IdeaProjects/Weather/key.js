@@ -1,0 +1,5 @@
+const weatherAPI = "40cb7f55adbe6b3302d4780d0ead3739";
+
+const myMapBoxKey = "pk.eyJ1IjoiYXNkZXJveWFsIiwiYSI6ImNsaWFkOXJjODAyMnMzZXFkMHFsdjJhN20ifQ.y7tX7YyXzbtbY3cDQVkdNg";
+
+const gitHubKey = "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";
